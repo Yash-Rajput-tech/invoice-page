@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Invoice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="invoice-container">
+
+        <!-- Header with Image -->
+        <div class="header">
+            <img src="Making money.jpeg" alt="Organization Banner">
+        </div>
+
+        <h1>Training Invoice</h1>
+
+        <!-- Invoice Details -->
+        <div class="invoice-details">
+            <strong>Invoice No:</strong> #INV2025-001 <br>
+            <strong>Date:</strong> <span id="invoiceDate">08 Sept 2025</span> <br>
+            <strong>Organization:</strong> Achiver Club Pvt. Ltd.
+        </div>
+
+        <!-- Customer and Billed By Details -->
+        <div class="billing-row">
+            <div class="billing-box">
+                <strong>Billed To:</strong><br>
+                <span id="billedToName">John Doe</span><br>
+                <span id="billedToEmail">johndoe@email.com</span><br>
+                <span id="billedToPhone">+91-9876543210</span>
+            </div>
+            <div class="billing-box right">
+                <strong>Billed By:</strong><br>
+                <span id="billedByCompany">Your Company Pvt. Ltd.</span><br>
+                <span id="billedByEmail">training@yourcompany.com</span><br>
+                <span id="billedByPhone">+91-1234567890</span>
+            </div>
+        </div>
+
+        <!-- Training Sessions -->
+        <div class="training-session">
+            <img src="Day-1.jpg" alt="Day 1 Training">
+            <div>
+                <h3>Day 1 Training</h3>
+                <p>Understand the platform</p>
+                <p>How to work smartly and build your base</p>
+            </div>
+        </div>
+
+        <div class="training-session">
+            <img src="Day-2.jpg" alt="Day 2 Training">
+            <div>
+                <h3>Day 2 Training</h3>
+                <p>Waht to do & How to do?</p>
+                <p>How to start making money</p>
+            </div>
+        </div>
+
+        <!-- Price Table -->
+        <table>
+            <tr>
+                <th>Session</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Day 1</td>
+                <td>Introduction & Hands-on</td>
+                <td>₹999</td>
+            </tr>
+            <tr>
+                <td>Day 2</td>
+                <td>Advanced & Projects</td>
+                <td>₹1000</td>
+            </tr>
+            <tr class="total">
+                <td colspan="2">Total</td>
+                <td><s>₹1999</s> ₹299</td>
+            </tr>
+        </table>
+
+        <!-- Extra Features -->
+        <div class="features">
+            <h3>Important Features:</h3>
+            <ul>
+                <li>Personal mentor for doubts</li>
+                <li>Access to Training Material & Recordings</li>
+                <li>Dedicated Support for Life-Time</li>
+                <li>Discount on Future Courses</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Thank you for choosing our training services! <br>
+                For queries, contact: support@yourcompany.com</p>
+        </div>
+
+    </div>
+
+    <!-- JS to fetch form values -->
+    <script>
+        const billedTo = JSON.parse(localStorage.getItem("billedTo"));
+        const billedBy = JSON.parse(localStorage.getItem("billedBy"));
+        const invoiceDate = localStorage.getItem("invoiceDate");
+
+        if (billedTo && billedBy) {
+            document.getElementById("billedToName").textContent = billedTo.name;
+            document.getElementById("billedToEmail").textContent = billedTo.email;
+            document.getElementById("billedToPhone").textContent = billedTo.phone;
+
+            document.getElementById("billedByCompany").textContent = billedBy.company;
+            document.getElementById("billedByEmail").textContent = billedBy.email;
+            document.getElementById("billedByPhone").textContent = billedBy.phone;
+        }
+
+        if (invoiceDate) {
+            document.getElementById("invoiceDate").textContent = invoiceDate;
+        }
+    </script>
+
+</body>
+
+</html>
